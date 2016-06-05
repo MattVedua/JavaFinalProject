@@ -4,12 +4,10 @@ import java.util.List;
 import javax.swing.JTextField;
 
 /**
- * 
- * @author Matthew Vedua
- * @author Garrett Gugs
  * This class contains methods to help the GUI to 
  * determine various things, such as winnings, loses, etc.
- *
+ * @author Matthew Vedua
+ * @author Garrett Gugs
  */
 public class RouletteHelperMethods {
 	protected static List<JTextField> clickedOn = new ArrayList<JTextField>();
