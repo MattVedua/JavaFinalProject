@@ -11,8 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JPanel;
 
+/** Creates, displays, and allows the user to interact with a GUI
+ * that plays the game of Roulette
+ * 
+ * @author Matthew Vedua
+ * @author Garrett Gugs
+ */
 public class RouletteGUI extends RouletteHelperMethods{
-	JTextArea textArea ;
+	private JTextArea textArea ;
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -992,6 +998,12 @@ public class RouletteGUI extends RouletteHelperMethods{
 		frame.getContentPane().add(btnConfirm);
 	
 	}
+	/** Eliminates repitition for 
+	 * enabling/disabling the JTextFields
+	 * 
+	 * @param whatToSet A boolean variable to decide if the
+	 * 			textfields should be enabled
+	 */
 	private void setTextFields(boolean whatToSet){
 		 textField.setEnabled(whatToSet);
 		 textField_1.setEnabled(whatToSet);
