@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JTextField;
 
 /**
@@ -14,6 +13,11 @@ public class RouletteHelperMethods {
 	protected static List<Integer> randomGen = new ArrayList<Integer>();
 	protected static int bet, balance, randomTile;
 	
+	/** Decides if the user wins or loses
+	 *  
+	 * @param type The type of bet the user makes
+	 * @return 1 if the user wins, 0 if they lose
+	 */
 	public static int doBet(String type){
 		balance -= bet;
 		boolean isEqual = true;
@@ -52,44 +56,25 @@ public class RouletteHelperMethods {
 		}
 	}
 
-	
+	/** Checks if the user bet on the appropriate number
+	 * of tiles for their bet
+	 * 
+	 * @param The type of a bet the user makes
+	 * @return True if they bet corectly, false if not
+	 */
 	public static boolean checkNumTiles(String betType){
-		switch(betType){
-		case "Straight":
-			if(clickedOn.size() == 1)
-				return true;
-			else 
-				return false;
-		/* Ends Straight */
-		case "Split":
-			if(clickedOn.size() == 2)
-				return true;
-			else 
-				return false;
-		/* Ends Split */
-		case "Square":
-			if(clickedOn.size() == 4)
-				return true;
-			else 
-				return false;
-		/* Ends Square */
-		case "Six Line":
-			if(clickedOn.size() == 6)
-				return true;
-			else 
-				return false;
-		/* Ends Six Line */
-		case "Street":
-			if(clickedOn.size() == 3)
-				return true;
-			else 
-				return false;
-		/* Ends Street ,*/
-			default: 
-				return false;
+		if(clickedOn.size() == tilesForBet(betType)){
+			return true;
+		} else {
+			return false;
 		}
 	}
 	
+	/** Provides the correct number of tiles to be bet on
+	 * 
+	 * @param The type of a bet the user makes
+	 * @return The appropriate number of tiles the user should bet on
+	 */
 	public static int tilesForBet(String betType){
 		switch(betType){
 		case "Straight":
@@ -111,6 +96,10 @@ public class RouletteHelperMethods {
 				return -1;
 		}
 	}
+	/** Calculates the winnings of a bet
+	 * 
+	 * @param kindOfBet The type of bet the user makes
+	 */
 	public static void winnings(String kindOfBet){
 		int payout = (36/tilesForBet(kindOfBet)) - 1;
 		balance = balance + (bet * payout);
